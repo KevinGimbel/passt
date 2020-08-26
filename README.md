@@ -18,18 +18,20 @@
 - [License](#license)
 <!-- END mktoc -->
 
+---
+
 ## Zero Dependencies?
 
 `passt` only depends on Rust standard library, namely:
 - `std::fs::File`
-- `use std::io::Read`
+- `std::io::Read`
 
 and additionally for the CLI part:
 - `std::env`
 
 and no other crates.
 
-The only other dependency is `/dev/urandom` from which random ints are read to generate random values.
+The only other "dependency" is `/dev/urandom` from which random ints are read to generate random values.
 
 ## Supported operating systems
 
@@ -46,7 +48,7 @@ For Windows `file:/dev/urandom` is read but this is **not yet tested**. It may o
 
 Use the standard character sets. This means possible characters are:
 -  `a-zA-Z0-9` if no special chars are included
--  `a-zA-Z0-9` + `!§$%&/\\()=?´`-_.,:;#'+*<>°^` is special chars are included
+-  `a-zA-Z0-9` + `!§$%&/()=?´`-_.,:;#'+*<>°^` is special chars are included
 
 ```rust
 use passt:Passt;
@@ -80,7 +82,10 @@ fn my_custom_set() {
 ## Usage: cli
 
 ```bash
-passt -l <int> [-s]
+USAGE: passt -l <int> [-s]
+
+-l      length of the generated password
+-s      use special characters
 ```
 
 ```bash
@@ -99,7 +104,7 @@ Right now the generation does not work with a string of emojis. This must have t
 
 ## Why the name "passt"
 
-"passt" is a German word you can say if something is "okay". Since this tool is "okay" in generating strings that can be used for passwords I found the name fitting. 
+"passt" is a German word you can say if something is "okay". Since this tool is "okay" in generating random strings that can be used for passwords I found the name fitting.
 
 ## License
 
