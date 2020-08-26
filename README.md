@@ -48,7 +48,7 @@ For Windows `file:/dev/urandom` is read but this is **not yet tested**. It may o
 
 Use the standard character sets. This means possible characters are:
 -  `a-zA-Z0-9` if no special chars are included
--  `a-zA-Z0-9` + `!§$%&/()=?´`-_.,:;#'+*<>°^` is special chars are included
+-  `a-zA-Z0-9` and `!§$%&/()=?´-_.,:;#'+*<>°^` if special chars are included
 
 ```rust
 use passt:Passt;
