@@ -36,7 +36,6 @@ impl Passt {
         // we need to extract chars because some "letters" are more than 1 byte long, e.g. `ä` or `ß`,
         // if we collect them into a Vec<str> and then index, we could get errors when hitting any special char.
         for c in char_set.chars() {
-            println!("{}\n{} != {}", c, index, idx);
             ret = format!("{}", c);
             idx = idx + 1;
             if idx == index {
