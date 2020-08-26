@@ -1,0 +1,20 @@
+[package]
+name = "passt"
+version = "0.1.0"
+authors = ["Kevin Gimbel <hallo@kevingimbel.com>"]
+edition = "2018"
+description = "passt is a cli tool and library to generate good-enough random passwords"
+categories = ["command-line-utilities", "development-tools::testing"]
+readme = "README.md"
+repository = "https://github.com/kevingimbel/passt"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "passt"
+path = "src/lib.rs"
+
+[[bin]]
+name = "passt"
+path = "src/bin.rs"
+
+[dependencies]
