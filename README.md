@@ -3,7 +3,7 @@
 
 !["Passt logo"](.github/passt-logo-1.png)
 
-`passt` is a zero-dependency random string generator that can be used to generate passwords in terminals or in your application.
+`passt` is a "zero-dependency" random string generator that can be used to generate passwords in terminals or in your application.
 
 <!-- BEGIN mktoc -->
 - [Zero Dependencies?](#zero-dependencies)
@@ -31,7 +31,7 @@ and additionally for the CLI part:
 
 and no other crates.
 
-The only other "dependency" is `/dev/urandom` from which random ints are read to generate random values.
+The only other "dependency" is `/dev/urandom` from which random ints are read to generate random values. So "zero-dependency" may be a bit of a stretch. 😬
 
 ## Supported operating systems
 
