@@ -188,4 +188,63 @@ mod test {
             assert_eq!(case.0, case.1);
         }
     }
+    #[test]
+    fn test_1000_random_passwords() {
+        use super::*;
+
+        let mut i = 0;
+        let max = 10000;
+        while i < max {
+            i = i + 1;
+            let expected: i32 = max / i;
+            assert_eq!(
+                expected,
+                Passt::random_password(expected, Some(false))
+                    .chars()
+                    .count() as i32
+            );
+        }
+    }
+    #[test]
+    fn test_1000_random_passwords_with_special() {
+        use super::*;
+        let mut i = 0;
+        let max = 1000;
+        while i < max {
+            i = i + 1;
+            let expected: i32 = max / i;
+            assert_eq!(
+                expected,
+                Passt::random_password(expected, Some(true)).chars().count() as i32
+            );
+        }
+    }
+    #[test]
+    fn test_10000_random_passwords() {
+        use super::*;
+        let mut i = 0;
+        let max = 10000;
+        while i < max {
+            i = i + 1;
+            let expected: i32 = max / i;
+            assert_eq!(
+                expected,
+                Passt::random_password(expected, Some(true)).chars().count() as i32
+            );
+        }
+    }
+    #[test]
+    fn test_10000_random_password_with_special() {
+        use super::*;
+        let mut i = 0;
+        let max = 10000;
+        while i < max {
+            i = i + 1;
+            let expected: i32 = max / i;
+            assert_eq!(
+                expected,
+                Passt::random_password(expected, Some(true)).chars().count() as i32
+            );
+        }
+    }
 }
