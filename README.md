@@ -12,6 +12,7 @@
   - [Windows Support](#windows-support)
 - [Usage: library](#usage-library)
 - [Usage: cli](#usage-cli)
+  - [Install](#install)
 - [Known issues](#known-issues)
   - [Emoji support](#emoji-support)
 - [Why the name "passt"](#why-the-name-passt)
@@ -80,6 +81,16 @@ fn my_custom_set() {
 ```
 
 ## Usage: cli
+
+### Install
+
+Install with `cargo`:
+
+```bash
+cargo install passt
+```
+
+Then use as described below
 
 ```bash
 USAGE: passt -l <int> [-s]
