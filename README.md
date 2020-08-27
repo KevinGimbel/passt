@@ -48,7 +48,9 @@ For Windows `file:/dev/urandom` is read but this is **not yet tested**. It may o
 
 ## Usage: library
 
-Use the standard character sets. This means possible characters are:
+**Using the standard character set**
+
+This means possible characters are:
 -  `a-zA-Z0-9` if no special chars are included
 -  `a-zA-Z0-9` and `!§$%&/()=?´-_.,:;#'+*<>°^` if special chars are included
 
