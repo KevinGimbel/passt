@@ -29,6 +29,7 @@
 
 and additionally for the CLI part:
 - `std::env`
+- `std::process::exit`
 
 and no other crates.
 

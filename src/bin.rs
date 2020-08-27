@@ -1,5 +1,6 @@
 use passt::Passt;
 use std::env;
+use std::process::exit;
 
 // checks if an CLI parameter is set
 fn extract_arg_present(param: &str, args: &Vec<String>) -> bool {
@@ -40,7 +41,7 @@ fn usage(msg: Option<String>) {
 "#;
 
     println!("{}{}", msg.unwrap_or(String::from("")), usage);
-    std::process::exit(0);
+    exit(0);
 }
 
 fn main() {
