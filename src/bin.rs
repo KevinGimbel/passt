@@ -23,12 +23,40 @@ fn extract_arg(param: &str, args: &Vec<String>) -> String {
     if idx == 123456789 {
         return String::from("");
     }
+    if args.len() == idx + 1 {
+        usage(Some(format!(
+            "Error: Parameter {} requires value.\n",
+            param
+        )));
+    }
     args[idx + 1].to_owned()
+}
+
+fn usage(msg: Option<String>) {
+    let usage = r#"USAGE: passt -l <int> [-s]
+
+-l      length of the generated password
+-s      use special characters
+"#;
+
+    println!("{}{}", msg.unwrap_or(String::from("")), usage);
+    std::process::exit(0);
 }
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let len = extract_arg("-l", &args).as_str().parse::<i32>().unwrap();
+
+    if args.len() == 1 {
+        usage(None);
+    }
+
+    let len = match extract_arg("-l", &args).as_str().parse::<i32>() {
+        Ok(n) => n,
+        Err(err) => {
+            usage(Some(format!("Error: {}\n", err)));
+            0
+        }
+    };
     let special = extract_arg_present("-s", &args);
     let passwd = Passt::random_password(len, Some(special));
     println!("{}", passwd);
