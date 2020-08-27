@@ -1,6 +1,6 @@
 [package]
 name = "passt"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Kevin Gimbel <hallo@kevingimbel.com>"]
 edition = "2018"
 description = "passt is a cli tool and library to generate good-enough random passwords"
