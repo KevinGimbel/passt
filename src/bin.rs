@@ -34,9 +34,10 @@ fn extract_arg(param: &str, args: &Vec<String>) -> String {
 }
 
 fn usage(msg: Option<String>) {
-    let usage = r#"USAGE: passt -l <int> [-s] [-chars "<str>"]
+    let usage = r#"USAGE: passt -l <int> [-s] [-chars "<str>"] [-n <int>]
 
 -l      length of the generated password
+-n      number of passwords to create (default: 1)
 -s      use special characters
 -chars  possible characters as a string, e.g. "abc012"
 "#;
@@ -59,18 +60,25 @@ fn main() {
             0
         }
     };
+    let mut iterations = match extract_arg("-n", &args).as_str().parse::<i32>() {
+        Ok(n) => n,
+        Err(_) => 1,
+    };
     let chars = extract_arg("-chars", &args);
     let special = extract_arg_present("-s", &args);
 
-    // Create password with custom set if set, or defaults
-    if chars.len() > 0 {
-        println!(
-            "{}",
-            Passt::random_password_with_custom_set(len, chars.as_str())
-        );
-    } else {
-        let passwd = Passt::random_password(len, Some(special));
-        println!("{}", passwd);
+    while iterations > 0 {
+        // Create password with custom set if set, or defaults
+        if chars.len() > 0 {
+            println!(
+                "{}",
+                Passt::random_password_with_custom_set(len, chars.as_str())
+            );
+        } else {
+            let passwd = Passt::random_password(len, Some(special));
+            println!("{}", passwd);
+        }
+        iterations = iterations - 1;
     }
 }
 

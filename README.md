@@ -95,25 +95,52 @@ cargo install passt
 Then use as described below
 
 ```bash
-USAGE: passt -l <int> [-s] [-chars "<str>"]
+USAGE: passt -l <int> [-s] [-chars "<str>"] [-n <int>]
 
 -l      length of the generated password
+-n      number of passwords to create (default: 1)
 -s      use special characters
 -chars  possible characters as a string, e.g. "abc012"
 ```
 
+**No special characters**
+```bash
+$ passt -l 32
+OgHFnTrSH5liCPhkrfbHdfhSWFwGGAPA
+```
+
+**Include special characters**
 ```bash
 $ passt -l 16 -s
 D#§2§RgI0Ou°F#
+```
 
-$ passt -l 32
-OgHFnTrSH5liCPhkrfbHdfhSWFwGGAPA
-
-# Custom set with emojis!
+**Custom character set**
+Even with emojis!
+```bash
 $ passt -l 16 -chars "🛹🥗🌈🦔🕶🤳🎮"
 🌈🎮🎮🎮🤳🥗🎮🌈🎮🎮🎮🎮🤳🎮🕶🕶
 
-$ passt -l 4 -chars "01"
+$ passt -l 4 -chars "1234"
+1341
+```
+
+**Create multiple passwords**
+
+```bash
+$ passt -l 4 -n 12
+Bw9a
+I0CP
+obhV
+wpmT
+0tMu
+h2NG
+AzGd
+D3jb
+FmrT
+mlsX
+UdiJ
+NbAr
 ```
 
 ## Limitations
