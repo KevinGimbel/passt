@@ -2,6 +2,8 @@ use passt::Passt;
 use std::env;
 use std::process::exit;
 
+const VERSION: &'static str = env!("CARGO_PKG_VERSION");
+
 // checks if an CLI parameter is set
 fn extract_arg_present(param: &str, args: &Vec<String>) -> bool {
     let pos = match args.iter().position(|x| x.as_str() == param) {
@@ -42,7 +44,12 @@ fn usage(msg: Option<String>) {
 -chars  possible characters as a string, e.g. "abc012"
 "#;
 
-    println!("{}{}", msg.unwrap_or(String::from("")), usage);
+    println!(
+        "passt v{}\n\n{}{}",
+        VERSION,
+        msg.unwrap_or(String::from("")),
+        usage
+    );
     exit(0);
 }
 
