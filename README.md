@@ -13,8 +13,7 @@
 - [Usage: library](#usage-library)
 - [Usage: cli](#usage-cli)
   - [Install](#install)
-- [Known issues](#known-issues)
-  - [Emoji support](#emoji-support)
+- [Limitations](#limitations)
 - [Why the name "passt"](#why-the-name-passt)
 - [License](#license)
 <!-- END mktoc -->
@@ -96,10 +95,11 @@ cargo install passt
 Then use as described below
 
 ```bash
-USAGE: passt -l <int> [-s]
+USAGE: passt -l <int> [-s] [-chars "<str>"]
 
 -l      length of the generated password
 -s      use special characters
+-chars  possible characters as a string, e.g. "abc012"
 ```
 
 ```bash
@@ -108,13 +108,29 @@ D#§2§RgI0Ou°F#
 
 $ passt -l 32
 OgHFnTrSH5liCPhkrfbHdfhSWFwGGAPA
+
+# Custom set with emojis!
+$ passt -l 16 -chars "🛹🥗🌈🦔🕶🤳🎮"
+🌈🎮🎮🎮🤳🥗🎮🌈🎮🎮🎮🎮🤳🎮🕶🕶
+
+$ passt -l 4 -chars "01"
 ```
 
-## Known issues
+## Limitations
 
-### Emoji support
+Because the random extraction of characters is weak it is better to have duplicates in the character set. See the following example:
 
-Right now the generation does not work with a string of emojis. This must have to do with the way the random characters are extracted.
+```bash
+passt -l 4 -chars "10"
+0000
+```
+
+With two characters, the last char is always taken. For randomness, add more chars to the set.
+
+```bash
+passt -l 4 -chars "1010"
+0100
+```
 
 ## Why the name "passt"
 

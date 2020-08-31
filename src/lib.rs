@@ -170,16 +170,25 @@ mod test {
         );
         cases.insert(
             12,
-            Passt::random_password_with_custom_set(
-                12,
-                "qwifqpehveqpviqpevqepvbqivakjfiowhet9823ur9ß13rhfeiqwafjvdsiohg2iw",
-            )
-            .chars()
-            .count(),
+            Passt::random_password_with_custom_set(12, "0123456789abc")
+                .chars()
+                .count(),
         );
         cases.insert(
             6,
             Passt::random_password_with_custom_set(6, "äöüÄÖÜáéóúÁÉÓÚàèòùÀÈÒÙß$§")
+                .chars()
+                .count(),
+        );
+        cases.insert(
+            7,
+            Passt::random_password_with_custom_set(7, "abc")
+                .chars()
+                .count(),
+        );
+        cases.insert(
+            7,
+            Passt::random_password_with_custom_set(7, "🤷‍♀️🥨🥇")
                 .chars()
                 .count(),
         );
