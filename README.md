@@ -54,7 +54,7 @@ This means possible characters are:
 -  `a-zA-Z0-9` and `!§$%&/()=?´-_.,:;#'+*<>°^` if special chars are included
 
 ```rust
-use passt:Passt;
+use passt::Passt;
 
 fn my_random_password() -> String {
     // Passt::random_password(length: i32, with_special_chars: Option<bool>) -> String {
