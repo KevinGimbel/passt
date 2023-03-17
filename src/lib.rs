@@ -15,7 +15,7 @@ impl Passt {
         // not tested!
         #[cfg(target_os = "windows")]
         let mut f = File::open("file:/dev/urandom").unwrap();
-        #[cfg(not(target_os = "windiws"))]
+        #[cfg(not(target_os = "windows"))]
         let mut f = File::open("/dev/urandom").unwrap();
         let mut buf = [0u8; 32];
         f.read_exact(&mut buf).unwrap();
