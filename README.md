@@ -1,11 +1,12 @@
 # passt
 > The "good-enough" password generator ¯\\_(ツ)_/¯
 
-!["Passt logo"](.github/passt-logo-1.png)
+!["Passt logo"](assets/github-header.png)
 
 `passt` is a "zero-dependency" random string generator that can be used to generate passwords in terminals or in your application.
 
 <!-- BEGIN mktoc -->
+
 - [Zero Dependencies?](#zero-dependencies)
 - [Supported operating systems](#supported-operating-systems)
   - [*nix](#nix)
