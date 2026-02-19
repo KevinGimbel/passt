@@ -24,13 +24,6 @@
             rustc
             rustfmt
             rustPackages.clippy
-            # Dev Tools
-            just
-            prek
-
-            # WASM
-            lld
-            wasm-pack
           ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
         };

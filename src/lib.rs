@@ -47,7 +47,7 @@ impl Passt {
         // Again, this is "good enough"
         if ret == String::from("") {
             //char_set.chars().next().unwrap().to_string();
-            String::from("A");
+            return String::from("A");
         }
 
         return ret.to_string();
